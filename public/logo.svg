@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="100%" height="100%">
+  <defs>
+    <!-- Globe Gradient -->
+    <radialGradient id="globeGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="35%" stop-color="#0284c7" />
+      <stop offset="75%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#0f3b6c" />
+    </radialGradient>
+
+    <!-- Globe Lighting Highlight -->
+    <linearGradient id="globeHighlight" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#022044" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Sri Lanka Map Gradient -->
+    <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#783f1d" />
+      <stop offset="60%" stop-color="#653412" />
+      <stop offset="100%" stop-color="#54290c" />
+    </linearGradient>
+
+    <!-- Open Book Pages Gradient -->
+    <linearGradient id="pageLeftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bbf7d0" />
+      <stop offset="70%" stop-color="#86efac" />
+      <stop offset="100%" stop-color="#4ade80" />
+    </linearGradient>
+
+    <linearGradient id="pageRightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="30%" stop-color="#86efac" />
+      <stop offset="100%" stop-color="#bbf7d0" />
+    </linearGradient>
+
+    <!-- Text Paths -->
+    <!-- Left path for English text curving along the ellipse -->
+    <path id="pathEnglishArc" d="M 315,580 C 185,480 180,265 375,190" fill="none" />
+    
+    <!-- Right path for Arabic text curving along the ellipse -->
+    <path id="pathArabicArc" d="M 570,180 C 790,240 820,490 690,575" fill="none" />
+
+    <!-- Ribbon Gradient -->
+    <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="50%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#c2410c" />
+    </linearGradient>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND GLOBE (Horizontal Ellipse) -->
+  <g filter="url(#softShadow)">
+    <ellipse cx="500" cy="360" rx="230" ry="135" fill="url(#globeGrad)" />
+    <ellipse cx="500" cy="360" rx="230" ry="135" fill="url(#globeHighlight)" />
+
+    <!-- Globe Grid Lines (Latitudes & Longitudes) -->
+    <!-- Equator line -->
+    <path d="M 270,360 L 730,360" stroke="#1e3a8a" stroke-width="1.8" opacity="0.65" fill="none" />
+    <!-- Upper Latitude -->
+    <path d="M 310,310 Q 500,340 690,310" stroke="#1e3a8a" stroke-width="1.5" opacity="0.5" fill="none" />
+    <!-- Lower Latitude -->
+    <path d="M 310,410 Q 500,380 690,410" stroke="#1e3a8a" stroke-width="1.5" opacity="0.5" fill="none" />
+    <!-- Center Longitude Meridian -->
+    <path d="M 500,225 L 500,495" stroke="#1e3a8a" stroke-width="1.8" opacity="0.65" fill="none" />
+    <!-- West Longitude -->
+    <path d="M 500,225 Q 380,360 500,495" stroke="#1e3a8a" stroke-width="1.5" opacity="0.5" fill="none" />
+    <!-- East Longitude -->
+    <path d="M 500,225 Q 620,360 500,495" stroke="#1e3a8a" stroke-width="1.5" opacity="0.5" fill="none" />
+  </g>
+
+  <!-- SRI LANKA MAP (Brown Island Silhouette) -->
+  <g filter="url(#softShadow)">
+    <!-- Small Islands (Jaffna / Mannar) -->
+    <path d="M 405,138 C 400,138 396,144 402,148 C 408,150 414,142 405,138 Z" fill="#653412" />
+    <path d="M 390,195 C 386,192 392,185 397,189 C 402,192 396,200 390,195 Z" fill="#653412" />
+
+    <!-- Main Island Body -->
+    <path d="M 414,115
+             C 410,122 418,135 425,140
+             C 432,145 448,160 455,175
+             C 462,190 478,210 488,230
+             C 498,245 525,275 538,300
+             C 550,325 558,350 562,370
+             C 568,395 560,420 545,445
+             C 535,462 520,495 505,525
+             C 490,555 470,565 450,555
+             C 438,550 422,540 412,525
+             C 398,505 385,480 382,450
+             C 378,415 380,380 384,340
+             C 388,300 382,260 390,230
+             C 395,210 405,185 410,165
+             C 415,145 422,120 414,115 Z"
+          fill="url(#mapGrad)"
+          stroke="#451a03"
+          stroke-width="1.5" />
+  </g>
+
+  <!-- PALM TREE IN FRONT OF MAP -->
+  <g id="palmTree">
+    <!-- Palm Trunk -->
+    <path d="M 495,475 Q 498,400 493,340 L 499,340 Q 504,400 501,475 Z" fill="#22c55e" stroke="#15803d" stroke-width="1" />
+    
+    <!-- Palm Crown Fronds -->
+    <!-- Top-left Fronds -->
+    <path d="M 496,340 Q 460,315 435,325 Q 465,335 496,342" fill="#15803d" />
+    <path d="M 496,340 Q 445,295 420,315 Q 455,320 496,342" fill="#16a34a" />
+    <path d="M 496,340 Q 460,280 445,295 Q 475,310 496,342" fill="#22c55e" />
+    <path d="M 496,340 Q 480,265 475,285 Q 490,305 496,342" fill="#15803d" />
+
+    <!-- Center Top Fronds -->
+    <path d="M 496,338 Q 496,260 500,275 Q 502,305 498,340" fill="#22c55e" />
+
+    <!-- Top-right Fronds -->
+    <path d="M 498,340 Q 515,265 520,285 Q 505,305 498,342" fill="#15803d" />
+    <path d="M 498,340 Q 535,280 550,295 Q 520,310 498,342" fill="#22c55e" />
+    <path d="M 498,340 Q 550,295 575,315 Q 540,320 498,342" fill="#16a34a" />
+    <path d="M 498,340 Q 535,315 560,325 Q 530,335 498,342" fill="#15803d" />
+
+    <!-- Coconut Heart -->
+    <circle cx="497" cy="342" r="6" fill="#166534" />
+  </g>
+
+  <!-- OPEN BOOK (QURAN / KNOWLEDGE) -->
+  <g id="openBook" filter="url(#softShadow)">
+    <!-- Book Back/Binding Bottom Shadow -->
+    <path d="M 310,525 L 340,545 L 496,525 L 652,545 L 682,525 L 660,540 L 496,555 L 332,540 Z" fill="#14532d" />
+
+    <!-- Left Open Page Base -->
+    <path d="M 496,415 L 340,430 C 325,445 315,485 320,530 L 496,515 Z"
+          fill="url(#pageLeftGrad)"
+          stroke="#14532d"
+          stroke-width="5"
+          stroke-linejoin="round" />
+
+    <!-- Left Page Inner Margins / Text Area -->
+    <path d="M 485,425 L 350,438 C 340,450 332,480 336,515 L 485,505 Z"
+          fill="none"
+          stroke="#15803d"
+          stroke-width="3" />
+
+    <!-- Right Open Page Base -->
+    <path d="M 496,415 L 652,430 C 667,445 677,485 672,530 L 496,515 Z"
+          fill="url(#pageRightGrad)"
+          stroke="#14532d"
+          stroke-width="5"
+          stroke-linejoin="round" />
+
+    <!-- Right Page Inner Margins / Text Area -->
+    <path d="M 507,425 L 642,438 C 652,450 660,480 656,515 L 507,505 Z"
+          fill="none"
+          stroke="#15803d"
+          stroke-width="3" />
+
+    <!-- Center Spine Ridge -->
+    <line x1="496" y1="410" x2="496" y2="520" stroke="#14532d" stroke-width="6" />
+
+    <!-- Orange Bookmark Ribbon -->
+    <!-- Ribbon top coming from center spine -->
+    <path d="M 496,415
+             Q 498,460 488,500
+             Q 480,535 465,550
+             L 475,555
+             Q 492,540 500,500
+             Q 506,460 496,415 Z"
+          fill="url(#ribbonGrad)"
+          stroke="#9a3412"
+          stroke-width="1.5" />
+  </g>
+
+  <!-- YEARS BELOW BOOK -->
+  <!-- Left: 1997 in bold dark green -->
+  <text x="385" y="562" font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="34" font-weight="900" fill="#064e3b" text-anchor="middle">
+    1997
+  </text>
+
+  <!-- Right: ١٤١٧هـ in bold dark green -->
+  <text x="600" y="562" font-family="'Amiri', 'Traditional Arabic', serif" font-size="36" font-weight="bold" fill="#064e3b" text-anchor="middle">
+    ١٤١٧هـ
+  </text>
+
+  <!-- MAIN ACRONYM: AMYS -->
+  <text x="496" y="635" font-family="'Georgia', 'Times New Roman', 'Cinzel', serif" font-size="64" font-weight="900" letter-spacing="8" fill="#064e3b" text-anchor="middle">
+    AMYS
+  </text>
+
+  <!-- ARCHED ENGLISH TEXT (Left Arc) -->
+  <text font-family="'Plus Jakarta Sans', 'Arial', sans-serif" font-size="21" font-weight="800" fill="#065f46" letter-spacing="1.5">
+    <textPath href="#pathEnglishArc" startOffset="50%" text-anchor="middle">
+      ASSOCIATION OF MUSLIM YOUTH OF SAILAN
+    </textPath>
+  </text>
+
+  <!-- ARCHED ARABIC TEXT (Right Arc) -->
+  <text font-family="'Amiri', serif" font-size="34" font-weight="bold" fill="#065f46" letter-spacing="1">
+    <textPath href="#pathArabicArc" startOffset="50%" text-anchor="middle">
+      جمعية شباب مسلمي سيلان
+    </textPath>
+  </text>
+</svg>
