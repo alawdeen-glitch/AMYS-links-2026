@@ -66,28 +66,29 @@ export const ProfilesScreen: React.FC<ProfilesScreenProps> = ({ onBack }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 pt-1">
-            {/* Direct Download Button */}
+          <div className="grid grid-cols-2 gap-2.5 pt-1">
+            {/* View (Preview without downloading) */}
+            <button
+              id="view-profile-english"
+              onClick={() => setActivePreview('english')}
+              className="py-2.5 px-3 rounded-2xl bg-emerald-900/60 hover:bg-emerald-800/80 active:scale-95 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
+              title="View document without downloading"
+            >
+              <Eye className="w-4 h-4 text-emerald-400" />
+              <span>View</span>
+            </button>
+
+            {/* Direct Download */}
             <a
               id="download-profile-english"
               href="/docs/AMYS English Profile - 2025.pdf"
               download="AMYS Profile (English).pdf"
-              className="flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:scale-95 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+              className="py-2.5 px-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:scale-95 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+              title="Download file"
             >
               <Download className="w-4 h-4 stroke-[2.5]" />
-              <span>Download English PDF</span>
+              <span>Download</span>
             </a>
-
-            {/* Quick Preview Button */}
-            <button
-              id="preview-profile-english"
-              onClick={() => setActivePreview('english')}
-              className="py-3 px-3.5 rounded-2xl bg-emerald-900/50 hover:bg-emerald-800/60 active:scale-95 text-emerald-200 hover:text-white border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all"
-              title="Quick Summary"
-            >
-              <Eye className="w-4 h-4" />
-              <span>Preview</span>
-            </button>
           </div>
         </div>
 
@@ -127,28 +128,29 @@ export const ProfilesScreen: React.FC<ProfilesScreenProps> = ({ onBack }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 pt-1">
-            {/* Direct Download Button */}
+          <div className="grid grid-cols-2 gap-2.5 pt-1">
+            {/* View (Preview without downloading) */}
+            <button
+              id="view-profile-arabic"
+              onClick={() => setActivePreview('arabic')}
+              className="py-2.5 px-3 rounded-2xl bg-emerald-950/70 hover:bg-emerald-900/80 active:scale-95 text-amber-300 hover:text-white border border-amber-400/30 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
+              title="معاينة الملف دون تحميل"
+            >
+              <Eye className="w-4 h-4 text-amber-400" />
+              <span>معاينة (View)</span>
+            </button>
+
+            {/* Direct Download */}
             <a
               id="download-profile-arabic"
               href="/docs/AMYS Arabic Profile - 2025.pdf"
               download="AMYS Profile (Arabic).pdf"
-              className="flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-400 active:scale-95 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition-all cursor-pointer"
+              className="py-2.5 px-3 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-400 active:scale-95 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition-all cursor-pointer"
+              title="تحميل الملف"
             >
               <Download className="w-4 h-4 stroke-[2.5]" />
-              <span className="font-amiri font-bold text-sm">تحميل الملف التعريفي (PDF)</span>
+              <span className="font-amiri font-bold text-sm">تحميل (Download)</span>
             </a>
-
-            {/* Quick Preview Button */}
-            <button
-              id="preview-profile-arabic"
-              onClick={() => setActivePreview('arabic')}
-              className="py-3 px-3.5 rounded-2xl bg-emerald-950/60 hover:bg-emerald-900/70 active:scale-95 text-amber-300 hover:text-white border border-amber-400/30 text-xs font-semibold flex items-center gap-1.5 transition-all"
-              title="عرض الملخص"
-            >
-              <Eye className="w-4 h-4" />
-              <span>معاينة</span>
-            </button>
           </div>
         </div>
 
@@ -164,47 +166,96 @@ export const ProfilesScreen: React.FC<ProfilesScreenProps> = ({ onBack }) => {
         </div>
       </main>
 
-      {/* Preview Modal */}
+      {/* In-App Document Preview Modal (Previews without downloading) */}
       {activePreview && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="w-full max-w-sm rounded-3xl glass-panel border border-amber-400/40 p-5 shadow-2xl relative">
-            <button
-              onClick={() => setActivePreview(null)}
-              className="absolute top-4 right-4 p-1.5 rounded-xl bg-emerald-950/60 text-emerald-300 hover:text-white border border-emerald-500/30"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="w-5 h-5 text-amber-400" />
-              <h3 className="font-bold text-white text-sm">
-                {activePreview === 'english' ? 'AMYS Profile Overview' : 'ملخص الملف التعريفي'}
-              </h3>
-            </div>
-
-            <div className="space-y-2.5 text-xs text-emerald-100/90 py-2">
-              <p className="leading-relaxed">
-                {activePreview === 'english'
-                  ? 'The Association of Muslim Youth of Sailan (AMYS) has been pioneering sustainable health, education, water infrastructure, and orphan relief across Sri Lanka since 1997.'
-                  : 'تعتبر جمعية شباب مسلمي سيلان من المنظمات الرائدة في العمل الخيري والتنموي في سريلانكا منذ عام 1997م، حيث تركز على مشاريع مكافحة العمى، الإغاثة، الآبار، ورعاية الأيتام.'}
-              </p>
-              
-              <div className="p-3 rounded-xl bg-emerald-950/70 border border-emerald-700/30 text-[11px] space-y-1 text-emerald-200">
-                <p>• <strong>Registration:</strong> NGO L-38904</p>
-                <p>• <strong>Scope:</strong> Island-wide across 25 administrative districts</p>
-                <p>• <strong>Audit:</strong> Annually verified by certified chartered accountants</p>
+        <div 
+          id="modal-profile-preview"
+          className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
+          onClick={() => setActivePreview(null)}
+        >
+          <div 
+            className="w-full max-w-2xl max-h-[92vh] rounded-3xl glass-panel border border-amber-400/40 bg-slate-950/95 flex flex-col shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="p-3.5 sm:p-4 border-b border-emerald-800/40 flex items-start justify-between gap-3 bg-emerald-950/70">
+              <div className="flex items-start gap-2.5 flex-1 min-w-0">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 shadow-sm">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 font-bold border border-amber-400/30">
+                      {activePreview === 'english' ? 'English' : 'عربي'}
+                    </span>
+                    <span className="text-[10px] text-emerald-300 bg-emerald-900/50 px-2 py-0.5 rounded-full border border-emerald-700/40">
+                      Official Profile
+                    </span>
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mt-1 leading-snug">
+                    {activePreview === 'english' ? 'AMYS Profile (English)' : 'الملف التعريفي للجمعية (عربي)'}
+                  </h3>
+                  <p className="text-xs text-emerald-200/80 mt-0.5">
+                    {activePreview === 'english' ? 'Association of Muslim Youth of Sailan' : 'جمعية شباب مسلمي سيلان'}
+                  </p>
+                </div>
               </div>
+
+              <button
+                id="btn-close-profile-preview"
+                onClick={() => setActivePreview(null)}
+                className="p-1.5 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 hover:text-white border border-emerald-500/30 transition-all shrink-0 cursor-pointer"
+                aria-label="Close Preview"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            <div className="pt-3 border-t border-emerald-800/40 flex gap-2">
+            {/* Embedded PDF Preview Window */}
+            <div className="p-3 sm:p-4 flex-1 flex flex-col min-h-0 bg-slate-900/60">
+              <div className="relative w-full h-[52vh] sm:h-[58vh] rounded-2xl overflow-hidden border border-emerald-500/25 bg-white shadow-inner flex flex-col">
+                <iframe
+                  src={`/docs/${encodeURIComponent(activePreview === 'english' ? 'AMYS English Profile - 2025.pdf' : 'AMYS Arabic Profile - 2025.pdf')}#toolbar=0`}
+                  title={activePreview === 'english' ? 'AMYS English Profile' : 'AMYS Arabic Profile'}
+                  className="w-full h-full border-none"
+                />
+              </div>
+              <p className="text-[11px] text-emerald-200/70 text-center mt-2">
+                Document preview without downloading.
+              </p>
+            </div>
+
+            {/* Modal Actions Footer */}
+            <div className="p-3.5 sm:p-4 border-t border-emerald-800/40 bg-emerald-950/70 flex items-center justify-between gap-2 flex-wrap">
               <a
-                href={activePreview === 'english' ? '/docs/AMYS English Profile - 2025.pdf' : '/docs/AMYS Arabic Profile - 2025.pdf'}
-                download
-                className="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2"
+                id="btn-profile-preview-new-tab"
+                href={`/docs/${encodeURIComponent(activePreview === 'english' ? 'AMYS English Profile - 2025.pdf' : 'AMYS Arabic Profile - 2025.pdf')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-3 rounded-xl bg-emerald-900/70 hover:bg-emerald-800 active:scale-95 text-emerald-200 hover:text-white text-xs font-semibold flex items-center gap-1.5 border border-emerald-600/30 transition-all cursor-pointer"
               >
-                <Download className="w-4 h-4" />
-                <span>Download Full PDF Document</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Open in Tab</span>
               </a>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setActivePreview(null)}
+                  className="py-2 px-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all cursor-pointer"
+                >
+                  Close
+                </button>
+
+                <a
+                  id="btn-profile-modal-download"
+                  href={`/docs/${encodeURIComponent(activePreview === 'english' ? 'AMYS English Profile - 2025.pdf' : 'AMYS Arabic Profile - 2025.pdf')}`}
+                  download={activePreview === 'english' ? 'AMYS Profile (English).pdf' : 'AMYS Profile (Arabic).pdf'}
+                  className="py-2 px-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:scale-95 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-md shadow-amber-500/20 transition-all cursor-pointer"
+                >
+                  <Download className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <span>Download PDF</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

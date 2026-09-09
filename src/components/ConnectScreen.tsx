@@ -10,7 +10,10 @@ import {
   Check, 
   ExternalLink,
   ShieldAlert,
-  Heart
+  Heart,
+  MapPin,
+  Navigation,
+  Clock
 } from 'lucide-react';
 import { HeaderNav } from './HeaderNav';
 
@@ -20,11 +23,18 @@ interface ConnectScreenProps {
 
 export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
   const [copied, setCopied] = useState(false);
+  const [addressCopied, setAddressCopied] = useState(false);
 
   const copyAccountNumber = () => {
     navigator.clipboard.writeText('1320010509');
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
+  };
+
+  const copyFullAddress = () => {
+    navigator.clipboard.writeText('#149 Maligakanda Road, Maradana, Colombo 10, Sri Lanka');
+    setAddressCopied(true);
+    setTimeout(() => setAddressCopied(false), 2500);
   };
 
   return (
@@ -203,7 +213,90 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
           </div>
         </div>
 
-        {/* 6. Bank Donation Details Card */}
+        {/* 6. Headquarters & Location Map Card */}
+        <div className="w-full rounded-3xl glass-panel p-4 sm:p-5 border border-emerald-400/35 shadow-2xl flex flex-col gap-3.5 relative overflow-hidden">
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex items-start gap-2.5">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-amber-500/20 border border-emerald-400/40 flex items-center justify-center text-amber-400 shrink-0 shadow-inner">
+                <MapPin className="w-5 h-5 stroke-[2.2]" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-600/40 text-emerald-300 font-bold uppercase tracking-wider">
+                    HQ Location
+                  </span>
+                  <span className="text-[10px] text-amber-400 font-mono font-semibold">
+                    Colombo 10, Sri Lanka
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white mt-1 leading-snug">
+                  AMYS General Secretariat
+                </h3>
+                <p className="text-xs text-emerald-200/90 mt-0.5">
+                  #149 Maligakanda Road, Maradana, Colombo 10
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Google Map Embed */}
+          <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-inner bg-slate-950">
+            <iframe
+              title="AMYS Headquarters Location Map"
+              src="https://maps.google.com/maps?q=149+Maligakanda+Road,+Maradana,+Colombo+10,+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full filter contrast-[1.02] brightness-[0.98]"
+            />
+          </div>
+
+          {/* Location Action Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
+            <a
+              id="btn-open-google-maps"
+              href="https://www.google.com/maps/search/?api=1&query=149+Maligakanda+Road,+Maradana,+Colombo+10,+Sri+Lanka"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-2 border border-emerald-400/40 shadow-md transition-all cursor-pointer"
+            >
+              <Navigation className="w-4 h-4 text-amber-400" />
+              <span>Open in Google Maps</span>
+              <ExternalLink className="w-3 h-3 text-emerald-300/80" />
+            </a>
+
+            <button
+              id="btn-copy-address"
+              onClick={copyFullAddress}
+              className="py-2.5 px-3.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/90 active:scale-95 text-emerald-200 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 border border-emerald-600/40 shadow-sm transition-all cursor-pointer"
+            >
+              {addressCopied ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-400 stroke-[2.5]" />
+                  <span className="text-emerald-300 font-bold">Address Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4 text-amber-400" />
+                  <span>Copy Address</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Office Working Hours */}
+          <div className="rounded-xl bg-emerald-950/60 p-2.5 border border-emerald-800/30 flex items-center gap-2 text-[11px] text-emerald-200/90">
+            <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+            <div className="flex-1 min-w-0">
+              <span className="font-semibold text-white">Visiting Hours:</span> Mon – Sat: 8:30 AM – 5:00 PM (Closed during Friday Jumu'ah prayer)
+            </div>
+          </div>
+        </div>
+
+        {/* 7. Bank Donation Details Card */}
         <div className="w-full rounded-3xl glass-gold-hero p-5 border border-amber-500/30 shadow-2xl relative overflow-hidden">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">

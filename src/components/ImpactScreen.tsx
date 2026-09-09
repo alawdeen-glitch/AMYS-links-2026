@@ -1,27 +1,11 @@
 import React, { useState } from 'react';
 import { 
-  BarChart3, 
-  Sparkles, 
-  HeartHandshake, 
-  Activity, 
-  Droplet, 
-  Building2, 
-  GraduationCap, 
-  Eye, 
-  Glasses, 
-  Users, 
-  BookOpen, 
-  Tv, 
-  Heart, 
-  Package, 
-  Scissors, 
-  Shirt, 
-  Coins, 
   Search,
-  Check
+  Sparkles
 } from 'lucide-react';
 import { HeaderNav } from './HeaderNav';
 import { HERO_STAT, IMPACT_STATS } from '../data/impactData';
+import { IMPACT_MEDIA } from '../data/impactMedia';
 
 interface ImpactScreenProps {
   onBack: () => void;
@@ -34,8 +18,8 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
   const [search, setSearch] = useState('');
 
   const filterPills: { id: FilterCategory; label: string }[] = [
-    { id: 'all', label: 'All' },
-    { id: 'health', label: 'Health' },
+    { id: 'all', label: 'All Projects' },
+    { id: 'health', label: 'Health Care' },
     { id: 'water_masjids', label: 'Water & Masjids' },
     { id: 'education_welfare', label: 'Education & Welfare' },
   ];
@@ -46,65 +30,71 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
     return matchesCategory && matchesSearch;
   });
 
-  const getStatIcon = (id: string, category: string) => {
-    switch (id) {
-      case 'h-1': return <Eye className="w-4 h-4 text-emerald-400" />;
-      case 'h-2': return <Activity className="w-4 h-4 text-emerald-400" />;
-      case 'h-3': return <Glasses className="w-4 h-4 text-emerald-400" />;
-      case 'h-4': return <HeartHandshake className="w-4 h-4 text-emerald-400" />;
-      case 'h-5': return <Activity className="w-4 h-4 text-emerald-400" />;
-      case 'w-1': return <Building2 className="w-4 h-4 text-amber-400" />;
-      case 'w-2':
-      case 'w-3':
-      case 'w-4':
-      case 'w-5': return <Droplet className="w-4 h-4 text-cyan-400" />;
-      case 'w-6': return <Building2 className="w-4 h-4 text-amber-400" />;
-      case 'e-1': return <Package className="w-4 h-4 text-amber-300" />;
-      case 'e-2':
-      case 'e-4': return <BookOpen className="w-4 h-4 text-amber-300" />;
-      case 'e-3': return <GraduationCap className="w-4 h-4 text-amber-300" />;
-      case 'e-5': return <Tv className="w-4 h-4 text-emerald-300" />;
-      case 'e-6': return <Users className="w-4 h-4 text-emerald-300" />;
-      case 'e-7': return <Heart className="w-4 h-4 text-rose-400" />;
-      case 'e-8': return <Package className="w-4 h-4 text-amber-400" />;
-      case 'e-9': return <Scissors className="w-4 h-4 text-amber-300" />;
-      case 'e-10': return <Package className="w-4 h-4 text-amber-400" />;
-      case 'e-11': return <Shirt className="w-4 h-4 text-cyan-300" />;
-      case 'e-12': return <Coins className="w-4 h-4 text-amber-400" />;
-      default: return <Sparkles className="w-4 h-4 text-amber-400" />;
-    }
+  // Calculate tailored text scale so numbers and metrics ALWAYS fit comfortably within card boundaries
+  const getMetricFontSize = (metricStr: string) => {
+    const len = metricStr.length;
+    if (len >= 10) return 'text-xl sm:text-2xl md:text-3xl';
+    if (len >= 6) return 'text-2xl sm:text-3xl md:text-4xl';
+    return 'text-2xl sm:text-4xl md:text-5xl';
   };
 
   return (
     <div className="w-full flex flex-col min-h-screen pb-10">
       <HeaderNav title="Impact in Numbers" onBack={onBack} />
 
-      <main className="px-4 pt-2 flex flex-col gap-4">
-        {/* Hero Highlight Counter (Glowing Gold 3D Card) */}
-        <div className="w-full rounded-3xl glass-gold-hero p-5 border-2 border-amber-400/40 shadow-2xl relative overflow-hidden text-center">
-          {/* Ambient Glow */}
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
+      <main className="px-3 sm:px-4 pt-2 flex flex-col gap-4">
+        {/* Hero Highlight Counter (Ophthalmic Cataract Milestone - Box Adjusted) */}
+        <div className="w-full rounded-3xl glass-panel border-2 border-amber-400/45 shadow-2xl overflow-hidden relative group">
+          {/* Visual Showcase Stage with Ultra Realistic Photography */}
+          <div className="relative w-full h-64 sm:h-76 md:h-84 bg-slate-950 overflow-hidden">
+            <img
+              src={IMPACT_MEDIA['h-1']?.imageUrl || 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80'}
+              alt={IMPACT_MEDIA['h-1']?.alt || 'High-precision ophthalmic cataract surgical operating microscope'}
+              loading="eager"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.92] contrast-[1.05]"
+            />
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2">
-            <Eye className="w-3.5 h-3.5 text-amber-300" />
-            <span>Key Milestone</span>
+            {/* Top Gradient Header Overlay */}
+            <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-transparent p-3 flex items-center justify-between pointer-events-none">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/90 text-slate-950 text-xs font-black uppercase tracking-wider shadow-lg">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>AMYS Key Milestone</span>
+              </span>
+              <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/85 px-2.5 py-0.5 rounded-full border border-amber-400/50 backdrop-blur-md">
+                1997 - 2025
+              </span>
+            </div>
+
+            {/* Emerald Green Bottom Banner - Dynamically Fitted to Box */}
+            <div className="absolute bottom-0 inset-x-0 w-full bg-gradient-to-r from-emerald-950/95 via-emerald-900/95 to-emerald-950/95 border-t border-emerald-400/40 py-2.5 sm:py-3.5 px-3 sm:px-4 flex items-center justify-center flex-wrap gap-x-2.5 gap-y-1 text-center backdrop-blur-md shadow-2xl overflow-hidden">
+              <span className="text-xs sm:text-base md:text-lg font-bold tracking-wide text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] shrink-0 text-center">
+                Performed
+              </span>
+              
+              {/* BIG 3D GOLD EMBOSSED NUMBER */}
+              <span className="text-2xl sm:text-4xl md:text-5xl font-black font-sans tracking-tight text-amber-400 glow-gold-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.95)] shrink-0">
+                {HERO_STAT.metric}
+              </span>
+
+              <span className="text-xs sm:text-base md:text-lg font-bold tracking-wide text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] shrink-0 text-center">
+                Cataract Surgeries
+              </span>
+            </div>
           </div>
 
-          <div className="text-4xl sm:text-5xl font-black text-amber-400 tracking-tight glow-gold-text my-1 font-sans">
-            {HERO_STAT.metric}
+          {/* Hero Meta Information - Aligned in Middle Style */}
+          <div className="p-4 sm:p-5 bg-gradient-to-b from-emerald-950/90 to-slate-950/95 flex flex-col items-center justify-center text-center gap-1.5">
+            <h2 className="text-base sm:text-lg font-bold text-white leading-tight text-center">
+              {HERO_STAT.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-emerald-200/90 font-medium text-center max-w-lg mx-auto">
+              {HERO_STAT.subtitle}
+            </p>
+            <p className="font-amiri text-xs sm:text-sm text-amber-300/90 pt-1.5 border-t border-emerald-800/40 text-center w-full max-w-md mx-auto">
+              {HERO_STAT.arabicSubtitle}
+            </p>
           </div>
-
-          <h2 className="text-sm sm:text-base font-bold text-white leading-tight">
-            {HERO_STAT.title}
-          </h2>
-
-          <p className="text-xs text-amber-200/90 font-medium mt-1">
-            {HERO_STAT.subtitle}
-          </p>
-
-          <p className="font-amiri text-xs text-amber-300/80 mt-1">
-            {HERO_STAT.arabicSubtitle}
-          </p>
         </div>
 
         {/* Search Bar for Statistics */}
@@ -115,13 +105,13 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search metrics (e.g. Surgeries, Wells, Masjids)..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-2xl glass-panel border border-emerald-500/25 text-xs text-white placeholder-emerald-300/50 focus:outline-none focus:border-amber-400/60 shadow-inner"
+            placeholder="Search metrics (e.g. Surgeries, Masjids, Wells, Scholarships)..."
+            className="w-full pl-10 pr-4 py-2.5 rounded-2xl glass-panel border border-emerald-500/25 text-xs text-white placeholder-emerald-300/50 focus:outline-none focus:border-amber-400/60 shadow-inner text-center sm:text-left"
           />
           {search && (
             <button 
               onClick={() => setSearch('')}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-emerald-300 hover:text-white"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-emerald-300 hover:text-white cursor-pointer"
             >
               Clear
             </button>
@@ -129,7 +119,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+        <div className="flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
           {filterPills.map((pill) => {
             const isActive = filter === pill.id;
             return (
@@ -137,7 +127,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
                 key={pill.id}
                 id={`pill-filter-${pill.id}`}
                 onClick={() => setFilter(pill.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition-all active:scale-95 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition-all active:scale-95 cursor-pointer text-center ${
                   isActive
                     ? 'bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/25 border border-amber-300'
                     : 'bg-emerald-950/60 text-emerald-200/90 border border-emerald-700/30 hover:bg-emerald-900/60'
@@ -149,43 +139,92 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
           })}
         </div>
 
-        {/* Metric Count indicator */}
-        <div className="flex items-center justify-between text-xs text-emerald-300/70 px-1">
-          <span>Showing {filteredStats.length} verified metrics</span>
+        {/* Metric Count indicator - Centered */}
+        <div className="flex items-center justify-center gap-2 text-xs text-emerald-300/70 py-0.5 text-center">
+          <span>Showing {filteredStats.length} verified projects</span>
+          <span className="text-emerald-500">•</span>
           <span className="text-[10px] text-amber-400/90 font-mono">1997 - 2025</span>
         </div>
 
-        {/* 2-Column Bento Stat Cards */}
-        <div className="grid grid-cols-2 gap-2.5">
-          {filteredStats.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-2xl glass-card-interactive p-3.5 border border-emerald-500/20 shadow-md flex flex-col justify-between group"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-1.5 rounded-lg bg-emerald-900/60 border border-emerald-500/30 group-hover:scale-105 transition-transform">
-                  {getStatIcon(item.id, item.category)}
-                </div>
-                <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950/70 text-emerald-300/80 font-medium">
-                  {item.categoryLabel}
-                </span>
-              </div>
+        {/* 1-Column Stat Cards with Ultra Realistic Photography Images */}
+        <div className="flex flex-col gap-4">
+          {filteredStats.map((item) => {
+            const media = IMPACT_MEDIA[item.id] || {
+              imageUrl: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80',
+              prefix: 'Achieved',
+              suffix: item.title,
+              alt: item.title,
+              sectorTag: item.categoryLabel
+            };
 
-              <div>
-                <div className="text-lg sm:text-xl font-extrabold text-amber-400 tracking-tight group-hover:text-amber-300 transition-colors font-sans">
-                  {item.metric}
+            return (
+              <div
+                key={item.id}
+                id={`stat-card-${item.id}`}
+                className="w-full rounded-3xl glass-panel border border-emerald-500/30 shadow-2xl overflow-hidden group transition-all duration-300 hover:border-amber-400/60 hover:shadow-emerald-950/70 flex flex-col"
+              >
+                {/* Ultra Realistic Photography Visual Showcase Stage */}
+                <div className="relative w-full h-56 sm:h-64 md:h-72 bg-slate-950 overflow-hidden">
+                  <img
+                    src={media.imageUrl}
+                    alt={media.alt}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes('unsplash.com/photo-1542816417')) {
+                        target.src = 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80';
+                      }
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.93] contrast-[1.05]"
+                  />
+
+                  {/* Top Subtle Vignette Gradient for Contrast */}
+                  <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/90 px-3 py-1 rounded-full border border-emerald-500/40 backdrop-blur-md shadow-md">
+                      {item.categoryLabel}
+                    </span>
+                    <span className="text-[10px] sm:text-xs text-amber-300 font-mono font-semibold bg-slate-950/90 px-2.5 py-1 rounded-full border border-amber-400/40 backdrop-blur-md shadow-md">
+                      {media.sectorTag}
+                    </span>
+                  </div>
+
+                  {/* Emerald Green Bottom Banner (Properly contained inside the card box, no overflow) */}
+                  <div className="absolute bottom-0 inset-x-0 w-full bg-gradient-to-r from-emerald-950/95 via-emerald-900/92 to-emerald-950/95 border-t border-emerald-400/35 px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-center flex-wrap gap-x-2 gap-y-0.5 text-center backdrop-blur-md shadow-2xl overflow-hidden">
+                    {/* Prefix Action Verb */}
+                    <span className="text-xs sm:text-sm font-semibold tracking-wide text-emerald-100/95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] shrink-0 text-center">
+                      {media.prefix}
+                    </span>
+                    
+                    {/* BIG 3D GOLD EMBOSSED NUMBER - Proportional & Contained */}
+                    <span className={`${getMetricFontSize(item.metric)} font-black font-sans tracking-tight text-amber-400 glow-gold-text drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] shrink-0 transition-transform group-hover:scale-105 text-center`}>
+                      {item.metric}
+                    </span>
+
+                    {/* Suffix Noun */}
+                    <span className="text-xs sm:text-sm font-semibold tracking-wide text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] shrink-0 text-center">
+                      {media.suffix}
+                    </span>
+                  </div>
                 </div>
-                <p className="text-[11px] sm:text-xs text-emerald-100/90 font-medium leading-tight mt-1 line-clamp-2">
-                  {item.title}
-                </p>
+
+                {/* Card Bottom Meta - Middle-Aligned Style */}
+                <div className="p-4 sm:p-5 bg-gradient-to-b from-slate-950/90 to-emerald-950/70 border-t border-emerald-800/30 flex flex-col items-center justify-center text-center">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-amber-300 transition-colors leading-snug text-center max-w-lg mx-auto">
+                    {item.title}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Audit Note */}
-        <div className="rounded-2xl bg-emerald-950/40 p-3 border border-emerald-800/30 text-center text-[10px] sm:text-[11px] text-emerald-300/80">
-          All figures are verified from AMYS field registries and audited organizational records.
+        {/* Informative Note - Centered */}
+        <div className="rounded-2xl bg-emerald-950/60 p-3.5 border border-emerald-800/40 text-center text-xs text-emerald-200/90 shadow-sm flex items-center justify-center text-center max-w-xl mx-auto w-full">
+          <p className="text-center">Official figures published in Association of Muslim Youth of Sailan Profile (1997 - 2025).</p>
         </div>
       </main>
     </div>
