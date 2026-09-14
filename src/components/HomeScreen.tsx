@@ -7,8 +7,8 @@ import {
   BarChart3, 
   HeartHandshake, 
   ChevronRight,
-  ExternalLink,
-  MapPin
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 import { ScreenType } from '../types';
 
@@ -18,9 +18,23 @@ interface HomeScreenProps {
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
   return (
-    <div className="w-full flex flex-col min-h-screen justify-between pb-6 pt-4 px-4">
+    <div className="w-full flex flex-col min-h-screen justify-between pb-6 pt-3 px-4">
+      {/* Top Status Header Bar (No Arabic switch) */}
+      <div className="w-full flex items-center justify-between pb-2 border-b border-emerald-800/30">
+        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-300">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-mono uppercase tracking-wider text-[10px] text-emerald-400/90">
+            AMYS • L-38904
+          </span>
+        </div>
+        <div className="flex items-center gap-1 text-[10px] font-semibold text-amber-300/90 bg-emerald-950/70 px-2.5 py-0.5 rounded-full border border-emerald-700/40">
+          <ShieldCheck className="w-3 h-3 text-emerald-400" />
+          <span>Registered NGO</span>
+        </div>
+      </div>
+
       {/* Top Header / Hero Section */}
-      <div className="flex flex-col items-center text-center mt-2">
+      <div className="flex flex-col items-center text-center mt-3">
         {/* 3D raised translucent rounded frame holding official unchanged logo */}
         <div className="relative group">
           {/* Ambient Glow */}
@@ -28,7 +42,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           
           <div className="relative w-52 sm:w-60 aspect-[3508/2480] rounded-2xl p-2.5 bg-white border-2 border-amber-400/50 shadow-2xl flex items-center justify-center transform transition-transform duration-300 hover:scale-[1.02] active:scale-95 overflow-hidden">
             <img
-              src="/color-01.png"
+              src="/images/color-01.png"
+              onError={(e) => {
+                e.currentTarget.src = '/color-01.png';
+              }}
               alt="Association of Muslim Youth of Sailan (AMYS)"
               className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
@@ -36,9 +53,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Arabic Title in gold Amiri calligraphy */}
+        {/* Traditional Arabic Emblem Calligraphy (Official Brand Text) */}
         <div className="mt-4">
-          <h2 className="font-amiri text-2xl sm:text-3xl font-bold text-amber-400 tracking-wide glow-gold-text leading-tight">
+          <h2 className="font-amiri text-2xl sm:text-3xl font-bold text-amber-400 tracking-wide glow-gold-text leading-tight" dir="rtl">
             جمعية شباب مسلمي سيلان
           </h2>
         </div>
@@ -56,7 +73,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
         {/* Motto Tag with hand-heart icon */}
         <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-emerald-950/80 via-emerald-900/60 to-emerald-950/80 border border-amber-500/30 text-amber-300 text-xs font-semibold shadow-inner">
           <HeartHandshake className="w-3.5 h-3.5 text-amber-400" />
-          <span>Helping the needy is Humane</span>
+          <span>In The Service of Humanity</span>
         </div>
       </div>
 
@@ -69,7 +86,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           className="group w-full p-4 rounded-2xl glass-card-interactive flex items-center justify-between border border-emerald-500/25 active:scale-[0.98] transition-all text-left relative overflow-hidden"
         >
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform shrink-0">
               <Globe className="w-5 h-5" />
             </div>
             <div>
@@ -82,11 +99,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <p className="text-xs text-emerald-200/70 mt-0.5">
-                Explore organizational portal, vision & services
+                Explore our web portal, mission, and news
               </p>
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all shrink-0" />
         </button>
 
         {/* Button 2: Connect with Us */}
@@ -96,7 +113,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           className="group w-full p-4 rounded-2xl glass-card-interactive flex items-center justify-between border border-emerald-500/25 active:scale-[0.98] transition-all text-left relative overflow-hidden"
         >
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform shrink-0">
               <Share2 className="w-5 h-5" />
             </div>
             <div>
@@ -109,11 +126,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <p className="text-xs text-emerald-200/70 mt-0.5">
-                WhatsApp, hotline, socials & bank donation info
+                WhatsApp, socials, hotline & headquarters map
               </p>
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all shrink-0" />
         </button>
 
         {/* Button 3: View Our Profile */}
@@ -123,7 +140,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           className="group w-full p-4 rounded-2xl glass-card-interactive flex items-center justify-between border border-emerald-500/25 active:scale-[0.98] transition-all text-left relative overflow-hidden"
         >
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform shrink-0">
               <FileText className="w-5 h-5" />
             </div>
             <div>
@@ -136,11 +153,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <p className="text-xs text-emerald-200/70 mt-0.5">
-                English & Arabic comprehensive organizational reports
+                Read or download English & Arabic official profiles
               </p>
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all shrink-0" />
         </button>
 
         {/* Button 4: Explore Our Projects */}
@@ -150,7 +167,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           className="group w-full p-4 rounded-2xl glass-card-interactive flex items-center justify-between border border-emerald-500/25 active:scale-[0.98] transition-all text-left relative overflow-hidden"
         >
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600/30 to-teal-900/50 border border-emerald-400/30 flex items-center justify-center text-amber-400 shadow-sm group-hover:scale-105 transition-transform shrink-0">
               <FolderKanban className="w-5 h-5" />
             </div>
             <div>
@@ -163,11 +180,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <p className="text-xs text-emerald-200/70 mt-0.5">
-                Health, education, welfare & development proposals
+                Proposals in Health, Education, Welfare & Water
               </p>
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="w-5 h-5 text-emerald-400/70 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all shrink-0" />
         </button>
 
         {/* Button 5: Our Impact in Numbers */}
@@ -177,7 +194,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           className="group w-full p-4 rounded-2xl glass-gold-hero flex items-center justify-between active:scale-[0.98] transition-all text-left relative overflow-hidden"
         >
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/30 to-amber-700/50 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/30 to-amber-700/50 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-sm group-hover:scale-105 transition-transform shrink-0">
               <BarChart3 className="w-5 h-5" />
             </div>
             <div>
@@ -186,15 +203,15 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
                   Our Impact in Numbers
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 font-extrabold border border-amber-400/40">
-                  30,000+ Surgeries
+                  30,000+ Key Milestone
                 </span>
               </div>
               <p className="text-xs text-amber-200/80 mt-0.5">
-                Key Milestone: 30,000+ Free Cataract Surgeries & metrics
+                Verified humanitarian achievements since 1997
               </p>
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-amber-400 group-hover:translate-x-0.5 transition-all" />
+          <ChevronRight className="w-5 h-5 text-amber-400 group-hover:text-amber-300 group-hover:translate-x-0.5 transition-all shrink-0" />
         </button>
       </div>
 
@@ -207,7 +224,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
           </p>
         </div>
         <p className="text-[10px] sm:text-[11px] font-medium text-amber-400/90 tracking-wider mt-1.5">
-          Serving Humanity Since 1997 • NGO Reg: L-38904
+          In The Service of Humanity Since 1997
         </p>
       </footer>
     </div>

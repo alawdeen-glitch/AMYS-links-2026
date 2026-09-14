@@ -9,7 +9,6 @@ import {
   Copy, 
   Check, 
   ExternalLink,
-  ShieldAlert,
   Heart,
   MapPin,
   Navigation,
@@ -32,7 +31,8 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
   };
 
   const copyFullAddress = () => {
-    navigator.clipboard.writeText('#149 Maligakanda Road, Maradana, Colombo 10, Sri Lanka');
+    const addr = '#149 Maligakanda Road, Maradana, Colombo 10, Sri Lanka';
+    navigator.clipboard.writeText(addr);
     setAddressCopied(true);
     setTimeout(() => setAddressCopied(false), 2500);
   };
@@ -45,7 +45,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
         {/* Intro Tag */}
         <div className="text-center px-2">
           <p className="text-xs text-emerald-200/80">
-            Reach out to our leadership, media team, or donate directly to transform lives.
+            Reach out directly to our leadership, headquarters, or humanitarian networks
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
               Facebook
             </span>
             <span className="text-[11px] text-blue-200/80 mt-0.5">
-              Official Profile
+              Official Page
             </span>
             <div className="mt-2 text-[10px] font-semibold text-blue-300 bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-700/40">
               Follow Page
@@ -107,7 +107,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
             <span className="font-bold text-white text-sm group-hover:text-amber-300">
               Official Email
             </span>
-            <span className="text-[11px] text-amber-200/80 truncate w-full mt-0.5">
+            <span className="text-[11px] text-amber-200/80 truncate w-full mt-0.5 font-mono">
               amyslanka@gmail.com
             </span>
             <div className="mt-2 text-[10px] font-semibold text-amber-300 bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-700/40">
@@ -142,7 +142,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
         <div className="w-full rounded-3xl glass-panel p-4 border border-emerald-400/30 shadow-xl flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-teal-800/40 border border-emerald-400/40 flex items-center justify-center text-amber-400">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-teal-800/40 border border-emerald-400/40 flex items-center justify-center text-amber-400 shrink-0">
                 <Phone className="w-5 h-5 stroke-[2.2]" />
               </div>
               <div>
@@ -150,11 +150,11 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
                   Direct Telephone Lines
                 </h3>
                 <p className="text-[11px] text-emerald-200/80">
-                  Leadership, Mobile & HQ Coordination
+                  Connect with General Secretariat & Leadership
                 </p>
               </div>
             </div>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-600/40 text-emerald-300 font-mono">
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-600/40 text-emerald-300 font-mono shrink-0">
               Direct Contact
             </span>
           </div>
@@ -195,7 +195,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
                   <Phone className="w-3.5 h-3.5 text-amber-400" />
                   <span>+94 77 788 6996</span>
                 </div>
-                <span className="text-[10px] text-emerald-300">Hotline</span>
+                <span className="text-[10px] text-emerald-300">Hotline / WA</span>
               </a>
 
               <a
@@ -207,7 +207,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
                   <Phone className="w-3.5 h-3.5 text-emerald-400" />
                   <span>+94 11 267 8333</span>
                 </div>
-                <span className="text-[10px] text-emerald-300">HQ Office</span>
+                <span className="text-[10px] text-emerald-300">Office Landline</span>
               </a>
             </div>
           </div>
@@ -281,7 +281,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
               ) : (
                 <>
                   <Copy className="w-4 h-4 text-amber-400" />
-                  <span>Copy Address</span>
+                  <span>Copy Postal Address</span>
                 </>
               )}
             </button>
@@ -291,7 +291,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
           <div className="rounded-xl bg-emerald-950/60 p-2.5 border border-emerald-800/30 flex items-center gap-2 text-[11px] text-emerald-200/90">
             <Clock className="w-4 h-4 text-amber-400 shrink-0" />
             <div className="flex-1 min-w-0">
-              <span className="font-semibold text-white">Visiting Hours:</span> Mon – Sat: 8:30 AM – 5:00 PM (Closed during Friday Jumu'ah prayer)
+              <span className="font-semibold text-white">Visiting Hours:</span> Monday – Saturday: 9:00 AM – 5:00 PM (Closed on Sundays & Public Holidays)
             </div>
           </div>
         </div>
@@ -305,10 +305,10 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
               </div>
               <div>
                 <h3 className="text-sm font-bold text-amber-300 uppercase tracking-wide">
-                  Bank Donation Account
+                  Bank Transfer Donations
                 </h3>
                 <p className="text-[11px] text-emerald-200/80">
-                  Direct Sadaqah, Zakat & Relief Support
+                  Direct official bank account details
                 </p>
               </div>
             </div>
@@ -322,17 +322,17 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
                 Account Name
               </p>
               <p className="text-xs font-bold text-white leading-tight">
-                Association of Muslim Youth of Sailan
+                ASSOCIATION OF MUSLIM YOUTH OF SAILAN
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-1 border-t border-emerald-800/40">
               <div>
                 <p className="text-[10px] text-emerald-300/70 uppercase tracking-wider font-semibold">
-                  Bank
+                  Bank Name
                 </p>
                 <p className="text-xs font-bold text-emerald-100">
-                  Commercial Bank of Ceylon
+                  Bank of Ceylon (BOC)
                 </p>
               </div>
               <div>
@@ -369,7 +369,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
                 ) : (
                   <>
                     <Copy className="w-4 h-4 stroke-[2]" />
-                    <span>Copy A/C</span>
+                    <span>Copy Account</span>
                   </>
                 )}
               </button>
@@ -378,7 +378,7 @@ export const ConnectScreen: React.FC<ConnectScreenProps> = ({ onBack }) => {
 
           {copied && (
             <div className="mt-2 text-center text-xs font-semibold text-amber-300 animate-fade-in">
-              ✓ Account number 1320010509 copied to clipboard!
+              Account number copied to clipboard!
             </div>
           )}
         </div>

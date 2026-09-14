@@ -19,14 +19,17 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
 
   const filterPills: { id: FilterCategory; label: string }[] = [
     { id: 'all', label: 'All Projects' },
-    { id: 'health', label: 'Health Care' },
+    { id: 'health', label: 'Healthcare' },
     { id: 'water_masjids', label: 'Water & Masjids' },
     { id: 'education_welfare', label: 'Education & Welfare' },
   ];
 
   const filteredStats = IMPACT_STATS.filter((item) => {
     const matchesCategory = filter === 'all' || item.category === filter;
-    const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase()) || item.metric.includes(search);
+    const matchesSearch = 
+      item.title.toLowerCase().includes(search.toLowerCase()) || 
+      (item.arabicTitle && item.arabicTitle.includes(search)) ||
+      item.metric.includes(search);
     return matchesCategory && matchesSearch;
   });
 
@@ -40,7 +43,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
 
   return (
     <div className="w-full flex flex-col min-h-screen pb-10">
-      <HeaderNav title="Impact in Numbers" onBack={onBack} />
+      <HeaderNav title="Our Impact in Numbers" onBack={onBack} />
 
       <main className="px-3 sm:px-4 pt-2 flex flex-col gap-4">
         {/* Hero Highlight Counter (Ophthalmic Cataract Milestone - Box Adjusted) */}
@@ -48,7 +51,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
           {/* Visual Showcase Stage with Ultra Realistic Photography */}
           <div className="relative w-full h-64 sm:h-76 md:h-84 bg-slate-950 overflow-hidden">
             <img
-              src={IMPACT_MEDIA['h-1']?.imageUrl || 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80'}
+              src={IMPACT_MEDIA['h-1']?.imageUrl || '/images/hero-cataract.jpg'}
               alt={IMPACT_MEDIA['h-1']?.alt || 'High-precision ophthalmic cataract surgical operating microscope'}
               loading="eager"
               referrerPolicy="no-referrer"
@@ -59,10 +62,10 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
             <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-transparent p-3 flex items-center justify-between pointer-events-none">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/90 text-slate-950 text-xs font-black uppercase tracking-wider shadow-lg">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>AMYS Key Milestone</span>
+                <span>Key Milestone</span>
               </span>
               <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/85 px-2.5 py-0.5 rounded-full border border-amber-400/50 backdrop-blur-md">
-                1997 - 2025
+                1997 – 2025
               </span>
             </div>
 
@@ -91,9 +94,11 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
             <p className="text-xs sm:text-sm text-emerald-200/90 font-medium text-center max-w-lg mx-auto">
               {HERO_STAT.subtitle}
             </p>
-            <p className="font-amiri text-xs sm:text-sm text-amber-300/90 pt-1.5 border-t border-emerald-800/40 text-center w-full max-w-md mx-auto">
-              {HERO_STAT.arabicSubtitle}
-            </p>
+            {HERO_STAT.arabicSubtitle && (
+              <p className="text-xs sm:text-sm text-amber-300/90 pt-1.5 border-t border-emerald-800/40 text-center w-full max-w-md mx-auto" dir="rtl">
+                {HERO_STAT.arabicSubtitle}
+              </p>
+            )}
           </div>
         </div>
 
@@ -105,7 +110,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search metrics (e.g. Surgeries, Masjids, Wells, Scholarships)..."
+            placeholder="Search metrics or project names..."
             className="w-full pl-10 pr-4 py-2.5 rounded-2xl glass-panel border border-emerald-500/25 text-xs text-white placeholder-emerald-300/50 focus:outline-none focus:border-amber-400/60 shadow-inner text-center sm:text-left"
           />
           {search && (
@@ -143,14 +148,14 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
         <div className="flex items-center justify-center gap-2 text-xs text-emerald-300/70 py-0.5 text-center">
           <span>Showing {filteredStats.length} verified projects</span>
           <span className="text-emerald-500">•</span>
-          <span className="text-[10px] text-amber-400/90 font-mono">1997 - 2025</span>
+          <span className="text-[10px] text-amber-400/90 font-mono">1997 – 2025</span>
         </div>
 
         {/* 1-Column Stat Cards with Ultra Realistic Photography Images */}
         <div className="flex flex-col gap-4">
           {filteredStats.map((item) => {
             const media = IMPACT_MEDIA[item.id] || {
-              imageUrl: 'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80',
+              imageUrl: '/images/hero-cataract.jpg',
               prefix: 'Achieved',
               suffix: item.title,
               alt: item.title,
@@ -224,7 +229,7 @@ export const ImpactScreen: React.FC<ImpactScreenProps> = ({ onBack }) => {
 
         {/* Informative Note - Centered */}
         <div className="rounded-2xl bg-emerald-950/60 p-3.5 border border-emerald-800/40 text-center text-xs text-emerald-200/90 shadow-sm flex items-center justify-center text-center max-w-xl mx-auto w-full">
-          <p className="text-center">Official figures published in Association of Muslim Youth of Sailan Profile (1997 - 2025).</p>
+          <p className="text-center">All figures represent audited projects executed by AMYS across Sri Lanka from 1997 to 2025.</p>
         </div>
       </main>
     </div>

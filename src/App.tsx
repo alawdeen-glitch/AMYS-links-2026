@@ -55,7 +55,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040d12] text-slate-100 flex justify-center items-start selection:bg-amber-500 selection:text-black overflow-x-hidden">
+    <div 
+      dir="ltr" 
+      lang="en"
+      className="min-h-screen bg-[#040d12] text-slate-100 flex justify-center items-start selection:bg-amber-500 selection:text-black overflow-x-hidden font-sans"
+    >
       {/* Centered Mobile App Shell (max-width: 440px) */}
       <div className="w-full max-w-[440px] min-h-screen bg-gradient-to-b from-[#064e3b]/30 via-[#022c22] to-[#040d12] border-x border-emerald-900/40 shadow-2xl relative flex flex-col">
         

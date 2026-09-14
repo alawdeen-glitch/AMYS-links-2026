@@ -5,10 +5,7 @@ import {
   ShieldCheck, 
   MapPin, 
   CheckCircle2, 
-  Compass, 
-  Building2, 
-  Users, 
-  HeartHandshake 
+  Compass
 } from 'lucide-react';
 import { HeaderNav } from './HeaderNav';
 
@@ -17,6 +14,15 @@ interface WebsiteScreenProps {
 }
 
 export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
+  const services = [
+    'Key Milestone: 30,000+ Free Cataract Eye Surgeries Performed',
+    'Clean Drinking Water Wells, Boreholes & Filtration Plants',
+    'Masjid & Islamic Community Center Infrastructure Development',
+    'Comprehensive Orphan Care, Sponsorship & Monthly Welfare',
+    'Educational Scholarships, School Stationery & University Grants',
+    'Ramadan Iftar Feeding, Qurban Sacrifices & Emergency Relief'
+  ];
+
   return (
     <div className="w-full flex flex-col min-h-screen pb-8">
       <HeaderNav title="Official Website" onBack={onBack} />
@@ -37,7 +43,7 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
                   AMYS Web Portal
                 </h2>
                 <span className="text-xs text-emerald-300 font-medium">
-                  Official Gateway & Documentation
+                  Official Online Gateway
                 </span>
               </div>
             </div>
@@ -45,11 +51,11 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
             {/* Live Status Badge */}
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-[11px] font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Online
+              Live
             </span>
           </div>
 
-          {/* Website Preview Card / Mock Visual */}
+          {/* Website Preview Card / Visual */}
           <div className="w-full rounded-2xl bg-gradient-to-b from-[#022c22] to-[#040d12] border border-emerald-500/20 p-4 mb-4 relative overflow-hidden group">
             <div className="flex items-center justify-between border-b border-emerald-800/40 pb-2 mb-3">
               <div className="flex items-center gap-1.5">
@@ -68,7 +74,10 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
             <div className="flex items-center gap-3 py-2">
               <div className="w-16 h-12 rounded-lg bg-white p-1 border border-emerald-400/40 shadow-sm flex items-center justify-center shrink-0 overflow-hidden">
                 <img
-                  src="/color-01.png"
+                  src="/images/color-01.png"
+                  onError={(e) => {
+                    e.currentTarget.src = '/color-01.png';
+                  }}
                   alt="AMYS Logo"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
@@ -76,25 +85,29 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
               </div>
               <div className="space-y-1.5 flex-1 min-w-0">
                 <div className="h-3.5 bg-emerald-800/40 rounded-md w-3/4 flex items-center px-1.5">
-                  <span className="text-[10px] text-emerald-200 font-semibold truncate">AMYS Humanitarian Network</span>
+                  <span className="text-[10px] text-emerald-200 font-semibold truncate">
+                    AMYS Humanitarian Network
+                  </span>
                 </div>
                 <div className="h-3 bg-emerald-900/50 rounded-md w-full flex items-center px-1.5">
-                  <span className="text-[9px] text-emerald-300/80 truncate">Serving Humanity Since 1997 • Colombo 10</span>
+                  <span className="text-[9px] text-emerald-300/80 truncate">
+                    Serving Humanity Since 1997 • Colombo 10
+                  </span>
                 </div>
               </div>
             </div>
             <div className="flex flex-wrap gap-1.5 pt-1">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-800/30 text-emerald-200 border border-emerald-700/30">
-                  Humanitarian Projects
-                </span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                  Online Giving
-                </span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-800/30 text-emerald-200 border border-emerald-700/30">
-                  Annual Reports
-                </span>
-              </div>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-800/30 text-emerald-200 border border-emerald-700/30">
+                Humanitarian Projects
+              </span>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                Online Giving
+              </span>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-800/30 text-emerald-200 border border-emerald-700/30">
+                Annual Reports
+              </span>
             </div>
+          </div>
 
           {/* Large Primary 3D Button */}
           <a
@@ -104,7 +117,7 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
             rel="noopener noreferrer"
             className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 active:scale-[0.98] text-slate-950 font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-amber-500/25 border border-amber-300 transition-all cursor-pointer"
           >
-            <span>Launch Full Website (External Tab)</span>
+            <span>Launch Official Website</span>
             <ExternalLink className="w-4 h-4 stroke-[2.5]" />
           </a>
         </div>
@@ -127,7 +140,7 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
                 Registration No: L-38904
               </p>
               <p className="text-[11px] text-emerald-200/70 mt-0.5">
-                Officially recognized non-governmental humanitarian organization in Sri Lanka since 1997.
+                Registered under the National NGO Secretariat of the Ministry of Defense & Urban Development, Sri Lanka
               </p>
             </div>
           </div>
@@ -143,7 +156,7 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
                 #149, Maligakanda Road, Maradana
               </p>
               <p className="text-xs text-emerald-200/80">
-                Colombo 10, Western Province, Sri Lanka
+                Colombo 10, Sri Lanka
               </p>
             </div>
           </div>
@@ -151,17 +164,10 @@ export const WebsiteScreen: React.FC<WebsiteScreenProps> = ({ onBack }) => {
           {/* Core Services Overview */}
           <div className="pt-2 border-t border-emerald-800/30">
             <p className="text-xs font-bold text-emerald-300 uppercase tracking-wider mb-2.5">
-              Key Strategic Humanitarian Services
+              Strategic Focus Areas
             </p>
             <div className="grid grid-cols-1 gap-2">
-              {[
-                'Key Milestone: 30,000+ Free Cataract Eye Surgeries Performed',
-                'Clean Drinking Water Wells, Boreholes & Filtration Plants',
-                'Masjid & Islamic Community Center Infrastructure Development',
-                'Comprehensive Orphan Care, Sponsorship & Monthly Welfare',
-                'Educational Scholarships, School Stationery & University Grants',
-                'Ramadan Iftar Feeding, Qurban Sacrifices & Emergency Relief'
-              ].map((service, index) => (
+              {services.map((service, index) => (
                 <div key={index} className="flex items-center gap-2 text-xs text-emerald-100/90 py-0.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>{service}</span>
