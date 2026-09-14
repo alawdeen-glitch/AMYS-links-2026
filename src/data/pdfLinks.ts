@@ -28,10 +28,10 @@ export const PDF_LINKS: DocumentLinksConfig = {
   // -------------------------------------------------------------------------
   profiles: {
     // Paste English Profile Google Drive link here:
-    english: '',
+    english: 'https://drive.google.com/open?id=1-wRSWQ0FD8onii0pL4zuhhsYwQkU2LoT',
 
     // Paste Arabic Profile Google Drive link here (الصق رابط الملف التعريفي العربي هنا):
-    arabic: '',
+    arabic: 'https://drive.google.com/open?id=10z6y3rO_sM4_40oTwlA3mj44YfnZhqba',
   },
 
   // -------------------------------------------------------------------------
