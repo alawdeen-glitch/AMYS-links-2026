@@ -39,27 +39,27 @@ export const PDF_LINKS: DocumentLinksConfig = {
   // -------------------------------------------------------------------------
   proposals: {
     // HEALTH SECTOR (القطاع الصحي)
-    'health-1': '', // Free Eye Camp Proposal - English
-    'health-2': '', // مشروع مخيمات العيون الجراحية المجانية - Arabic
-    'health-3': '', // Free Eye Camp Book - English
-    'health-4': '', // توثيق شامل لمخيمات طب العيون في سيلان - Arabic
+    'health-1': 'https://drive.google.com/open?id=1Jk1ZKruwCEVy9fEBLbGO5cEGo6Sh2f78', // Free Eye Camp Proposal - English
+    'health-2': 'https://drive.google.com/open?id=1eP5lRHA-_lPteSUxsYB9ci64X9jVz1jL', // مشروع مخيمات العيون الجراحية المجانية - Arabic
+    'health-3': 'https://drive.google.com/open?id=1d_j-gQgjzd65_VeqdeEStoUpSspjcfWV', // Free Eye Camp Book - English
+    'health-4': 'https://drive.google.com/open?id=11oDYipRmnhL3e6ms7_l5jKnd-Wy-G02s', // توثيق شامل لمخيمات طب العيون في سيلان - Arabic
     'health-5': '', // Ambulance Project Proposal - English
 
     // EDUCATION SECTOR (قطاع التعليم)
-    'edu-1': '', // مشروع الحقيبة المدرسية والقرطاسية - Arabic
-    'edu-2': '', // School Stationery Proposal - English
-    'edu-3': '', // برنامج الأسرة السعيدة والتوجيه الأسري - Arabic
-    'edu-4': '', // Happy Family Proposal - English
+    'edu-1': 'https://drive.google.com/open?id=1ji3WFxtgJXK_BPWr1yE2WzRWE3YOD_cA', // مشروع الحقيبة المدرسية والقرطاسية - Arabic
+    'edu-2': 'https://drive.google.com/open?id=1OmLiNWE6jxLUd8KbpqgccGsHW9aJ2lru', // School Stationery Proposal - English
+    'edu-3': 'https://drive.google.com/open?id=1KPjSXjnMsAmjHmI48sGE4TBuciJy8mYI', // برنامج الأسرة السعيدة والتوجيه الأسري - Arabic
+    'edu-4': 'https://drive.google.com/open?id=1D9xReblPpfNxZMNO0wnmEF6_h8kLj3dd', // Happy Family Proposal - English
     'edu-5': '', // Thoppur Education Project Proposal - English
 
     // SOCIAL WELFARE SECTOR (قطاع الرعاية الاجتماعية)
-    'welfare-1': '', // Aytham - Orphans Care & Sponsorship Proposal - English
-    'welfare-2': '', // Sewing Machine Self-Sufficiency Proposal - English
+    'welfare-1': 'https://drive.google.com/open?id=1kyASc7O192HtaVv569MSAvvRGmo3a7PA', // Aytham - Orphans Care & Sponsorship Proposal - English
+    'welfare-2': 'https://drive.google.com/open?id=1KPjSXjnMsAmjHmI48sGE4TBuciJy8mYI', // Sewing Machine Self-Sufficiency Proposal - English
 
     // WATER & COMMUNITY DEVELOPMENT SECTOR (قطاع المياه والمساجد)
-    'dev-1': '', // مشروع توفير مياه الشرب النقية والآبار - Arabic
-    'dev-2': '', // Clean Drinking Water Project - English
-    'dev-3': '', // Masjid Construction & Maintenance Project - English
+    'dev-1': 'https://drive.google.com/open?id=1nfV3MLLy5ShojbgHBP-xcKDrcb75We_E', // مشروع توفير مياه الشرب النقية والآبار - Arabic
+    'dev-2': 'https://drive.google.com/open?id=1eJT_rtCvhUT1f7bZgazYna-AFDXjWQ1t', // Clean Drinking Water Project - English
+    'dev-3': 'https://drive.google.com/open?id=1DxAFR0rYI5_4x52tNj8TCaz-tk8hpVw5', // Masjid Construction & Maintenance Project - English
   },
 };
 
