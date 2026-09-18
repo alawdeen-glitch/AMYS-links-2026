@@ -58,7 +58,7 @@ export const PDF_LINKS: DocumentLinksConfig = {
 
     // WATER & COMMUNITY DEVELOPMENT SECTOR (قطاع المياه والمساجد)
     'dev-1': 'https://drive.google.com/file/d/1G-nywyzR1prQve934yha5MxyLY5L8kYl/view?usp=drive_link, // مشروع توفير مياه الشرب النقية والآبار - Arabic
-    'dev-2': 'https://drive.google.com/open?id=1eJT_rtCvhUT1f7bZgazYna-AFDXjWQ1t', // Clean Drinking Water Project - English
+    'dev-2': 'https://drive.google.com/file/d/1iG289dtsC7fzcNbczyYGY8cUCEnV1HpV/view?usp=drive_link', // Clean Drinking Water Project - English
     'dev-3': 'https://drive.google.com/open?id=1DxAFR0rYI5_4x52tNj8TCaz-tk8hpVw5', // Masjid Construction & Maintenance Project - English
   },
 };
