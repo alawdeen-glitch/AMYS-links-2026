@@ -31,7 +31,7 @@ export const PDF_LINKS: DocumentLinksConfig = {
     english: 'https://drive.google.com/open?id=1-wRSWQ0FD8onii0pL4zuhhsYwQkU2LoT',
 
     // Paste Arabic Profile Google Drive link here (الصق رابط الملف التعريفي العربي هنا):
-    arabic: 'https://drive.google.com/open?id=10z6y3rO_sM4_40oTwlA3mj44YfnZhqba',
+    arabic: 'https://drive.google.com/file/d/1eBaQiEMS4ODJBedxpqUjX_O-mNt_B1NK/view?usp=drive_link',
   },
 
   // -------------------------------------------------------------------------
