@@ -57,7 +57,7 @@ export const PDF_LINKS: DocumentLinksConfig = {
     'welfare-2': 'https://drive.google.com/open?id=1KPjSXjnMsAmjHmI48sGE4TBuciJy8mYI', // Sewing Machine Self-Sufficiency Proposal - English
 
     // WATER & COMMUNITY DEVELOPMENT SECTOR (قطاع المياه والمساجد)
-    'dev-1': 'https://drive.google.com/open?id=1nfV3MLLy5ShojbgHBP-xcKDrcb75We_E', // مشروع توفير مياه الشرب النقية والآبار - Arabic
+    'dev-1': 'https://drive.google.com/file/d/1G-nywyzR1prQve934yha5MxyLY5L8kYl/view?usp=drive_link, // مشروع توفير مياه الشرب النقية والآبار - Arabic
     'dev-2': 'https://drive.google.com/open?id=1eJT_rtCvhUT1f7bZgazYna-AFDXjWQ1t', // Clean Drinking Water Project - English
     'dev-3': 'https://drive.google.com/open?id=1DxAFR0rYI5_4x52tNj8TCaz-tk8hpVw5', // Masjid Construction & Maintenance Project - English
   },
