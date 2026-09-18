@@ -22,10 +22,10 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
   {
     id: 'h-2',
-    metric: '99,340',
-    rawNumber: 99340,
+    metric: '105,340',
+    rawNumber: 105340,
     title: 'Eye Patients Diagnosed',
-    arabicTitle: 'فحص وتشخيص ٩٩,٣٤٠ مريض عيون',
+    arabicTitle: 'فحص وتشخيص 105340 مريض عيون',
     category: 'health',
     categoryLabel: 'Health'
   },
@@ -40,11 +40,11 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
   {
     id: 'h-4',
-    metric: '80',
-    rawNumber: 80,
+    metric: '120',
+    rawNumber: 120,
     suffix: ' Camps',
     title: 'Medical Camps Organized (275 Doctors)',
-    arabicTitle: 'تنظيم ٨٠ مخيماً طبياً بمشاركة ٢٧٥ طبيباً واستشارياً',
+    arabicTitle: 'تنظيم 120 مخيماً طبياً بمشاركة ٢٧٥ طبيباً واستشارياً',
     category: 'health',
     categoryLabel: 'Health'
   },
@@ -61,10 +61,10 @@ export const IMPACT_STATS: ImpactStat[] = [
   // Water & Masjids
   {
     id: 'w-1',
-    metric: '192',
-    rawNumber: 192,
+    metric: '197',
+    rawNumber: 197,
     title: 'Masjids Constructed',
-    arabicTitle: 'بناء وتشييد ١٩٢ مسجداً وجامعاً',
+    arabicTitle: 'بناء وتشييد 197 مسجداً وجامعاً',
     category: 'water_masjids',
     categoryLabel: 'Water & Masjids'
   },
@@ -79,10 +79,10 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
   {
     id: 'w-3',
-    metric: '6,615',
-    rawNumber: 6615,
+    metric: '615',
+    rawNumber: 615,
     title: 'Deep Wells Implemented',
-    arabicTitle: 'تنفيذ ٦,٦١٥ بئراً عميقة ومضخات ارتوازية',
+    arabicTitle: 'تنفيذ ٦١٥ بئراً عميقة ومضخات ارتوازية',
     category: 'water_masjids',
     categoryLabel: 'Water & Masjids'
   },
@@ -117,19 +117,19 @@ export const IMPACT_STATS: ImpactStat[] = [
   // Education & Welfare
   {
     id: 'e-1',
-    metric: '10,620',
-    rawNumber: 10620,
+    metric: '17,750',
+    rawNumber: 17750,
     title: 'School Bags & Stationery Distributed',
-    arabicTitle: 'توزيع ١٠,٦٢٠ حقيبة مدرسية وقرطاسية متكاملة',
+    arabicTitle: 'توزيع 17,750 حقيبة مدرسية وقرطاسية متكاملة',
     category: 'education_welfare',
     categoryLabel: 'Education & Welfare'
   },
   {
     id: 'e-2',
-    metric: '99,570',
-    rawNumber: 99570,
+    metric: '9,570',
+    rawNumber: 9570,
     title: 'Educational Lectures & Lessons',
-    arabicTitle: 'تنظيم ٩٩,٥٧٠ محاضرة ودرساً تعليمياً وتوعوياً',
+    arabicTitle: 'تنظيم ٩,٥٧٠ محاضرة ودرساً تعليمياً وتوعوياً',
     category: 'education_welfare',
     categoryLabel: 'Education & Welfare'
   },
@@ -171,19 +171,19 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
   {
     id: 'e-7',
-    metric: '2,756',
-    rawNumber: 2756,
+    metric: '2,792',
+    rawNumber: 2792,
     title: 'Orphans Sponsored & Cared For',
-    arabicTitle: 'كفالة ورعاية ٢,٧٥٦ يتيماً رعاية شاملة',
+    arabicTitle: 'كفالة ورعاية 2,792 يتيماً رعاية شاملة',
     category: 'education_welfare',
     categoryLabel: 'Education & Welfare'
   },
   {
     id: 'e-8',
-    metric: '211,572',
-    rawNumber: 211572,
+    metric: '215,572',
+    rawNumber: 215572,
     title: 'Families Provided Qurban Meat',
-    arabicTitle: 'توزيع لحوم الأضاحي على ٢١١,٥٧٢ أسرة مستفيدة',
+    arabicTitle: 'توزيع لحوم الأضاحي على 215,572 أسرة مستفيدة',
     category: 'education_welfare',
     categoryLabel: 'Education & Welfare'
   },
@@ -198,10 +198,10 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
   {
     id: 'e-10',
-    metric: '117,000 kg',
-    rawNumber: 117000,
+    metric: '121,000 kg',
+    rawNumber: 121000,
     title: 'Premium Dates Distributed',
-    arabicTitle: 'توزيع ١١٧,٠٠٠ كجم من التمور الرمضانية الفاخرة',
+    arabicTitle: 'توزيع 121,000 كجم من التمور الرمضانية الفاخرة',
     category: 'education_welfare',
     categoryLabel: 'Education & Welfare'
   },
