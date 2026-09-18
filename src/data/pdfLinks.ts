@@ -43,14 +43,14 @@ export const PDF_LINKS: DocumentLinksConfig = {
     'health-2': 'https://drive.google.com/open?id=1eP5lRHA-_lPteSUxsYB9ci64X9jVz1jL', // مشروع مخيمات العيون الجراحية المجانية - Arabic
     'health-3': 'https://drive.google.com/open?id=1d_j-gQgjzd65_VeqdeEStoUpSspjcfWV', // Free Eye Camp Book - English
     'health-4': 'https://drive.google.com/open?id=11oDYipRmnhL3e6ms7_l5jKnd-Wy-G02s', // توثيق شامل لمخيمات طب العيون في سيلان - Arabic
-    'health-5': '', // Ambulance Project Proposal - English
+    'health-5': 'https://drive.google.com/file/d/1_OXG9GUYAGPrYdfk3AAhHzW4wbZ71zoe/view?usp=sharing', // Ambulance Project Proposal - English
 
     // EDUCATION SECTOR (قطاع التعليم)
     'edu-1': 'https://drive.google.com/open?id=1ji3WFxtgJXK_BPWr1yE2WzRWE3YOD_cA', // مشروع الحقيبة المدرسية والقرطاسية - Arabic
     'edu-2': 'https://drive.google.com/open?id=1OmLiNWE6jxLUd8KbpqgccGsHW9aJ2lru', // School Stationery Proposal - English
-    'edu-3': 'https://drive.google.com/open?id=1KPjSXjnMsAmjHmI48sGE4TBuciJy8mYI', // برنامج الأسرة السعيدة والتوجيه الأسري - Arabic
+    'edu-3': 'https://drive.google.com/file/d/1SzEl2umD_ln_z1-BN47MKO2ZWRIzdaSR/view?usp=sharing', // برنامج الأسرة السعيدة والتوجيه الأسري - Arabic
     'edu-4': 'https://drive.google.com/open?id=1D9xReblPpfNxZMNO0wnmEF6_h8kLj3dd', // Happy Family Proposal - English
-    'edu-5': '', // Thoppur Education Project Proposal - English
+    'edu-5': 'https://drive.google.com/file/d/1xAbPagTpd0wJX72Vj7s6aTynSWTN8Efc/view?usp=drive_link', // Thoppur Education Project Proposal - English
 
     // SOCIAL WELFARE SECTOR (قطاع الرعاية الاجتماعية)
     'welfare-1': 'https://drive.google.com/open?id=1kyASc7O192HtaVv569MSAvvRGmo3a7PA', // Aytham - Orphans Care & Sponsorship Proposal - English
