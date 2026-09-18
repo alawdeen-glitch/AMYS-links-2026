@@ -90,7 +90,7 @@ export const IMPACT_MEDIA: Record<string, ImpactMediaInfo> = {
 
   // --- EDUCATION & WELFARE (Pages 15, 20, 21, 22, 23, 24, 25 in AMYS Profile) ---
   'e-1': {
-    imageUrl: '/images/21.JPG',
+    imageUrl: '/images/21.jpg',
     prefix: 'Distributed',
     suffix: 'School Kits',
     alt: 'Vibrant student backpacks, notebooks, colored pencils, and complete educational stationery sets',
